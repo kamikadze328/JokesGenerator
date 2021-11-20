@@ -1,22 +1,33 @@
 package com.kamikadze328.hedgehogtest.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.kamikadze328.hedgehogtest.R
+import com.kamikadze328.hedgehogtest.data.utils.NumbersInputFilter
 import com.kamikadze328.hedgehogtest.databinding.FragmentJokesBinding
 import com.kamikadze328.hedgehogtest.view.adapter.JokeAdapter
 import com.kamikadze328.hedgehogtest.view.adapter.JokeItemDecorator
 import com.kamikadze328.hedgehogtest.view.model.UIState
 import com.kamikadze328.hedgehogtest.view.viewmodel.JokesViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class JokesFragment : Fragment(R.layout.fragment_jokes) {
     private val viewModel: JokesViewModel by activityViewModels()
 
     private var _binding: FragmentJokesBinding? = null
     private val binding get() = _binding!!
+
+    @Inject
+    lateinit var _numbersInputFilter: NumbersInputFilter
+
+    private val numbersInputFilter: NumbersInputFilter
+        get() = _numbersInputFilter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,6 +38,7 @@ class JokesFragment : Fragment(R.layout.fragment_jokes) {
     }
 
     private fun setupTextWatcher() {
+        binding.etJokesCount.filters += numbersInputFilter
         binding.etJokesCount.addTextChangedListener {
             viewModel.onInputCountChanged(it.toString())
         }

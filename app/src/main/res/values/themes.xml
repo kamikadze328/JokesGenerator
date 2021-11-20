@@ -33,13 +33,13 @@
     </style>
 
     <style name="MyEditText" parent="MyText">
-        <item name="android:backgroundTint">@color/main</item>
-
         <item name="android:paddingStart">@dimen/medium</item>
         <item name="android:paddingEnd">@dimen/medium</item>
         <item name="android:paddingTop">@dimen/big</item>
         <item name="android:paddingBottom">@dimen/big</item>
+
         <item name="android:textColor">@color/main</item>
         <item name="android:textColorHint">@color/main</item>
+        <item name="android:backgroundTint">@color/main</item>
     </style>
 </resources>

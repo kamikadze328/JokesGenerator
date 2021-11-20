@@ -7,11 +7,16 @@ import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.kamikadze328.hedgehogtest.view.WebApiFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.main) {
+
+    private lateinit var navController: NavController
+    private lateinit var navHostFragment: NavHostFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,9 +28,9 @@ class MainActivity : AppCompatActivity(R.layout.main) {
     }
 
     private fun setupNavBar() {
-        val navHostFragment =
+        navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
         bottomNavigationView.setupWithNavController(navController)
@@ -38,4 +43,12 @@ class MainActivity : AppCompatActivity(R.layout.main) {
             }
         }
     }
+
+    override fun onBackPressed() {
+        //navController.currentDestination?.id == R.id.navigation_web_api
+        val currFragment = navHostFragment.childFragmentManager.primaryNavigationFragment
+        if (currFragment is WebApiFragment && currFragment.onBackPressed()) return
+        super.onBackPressed()
+    }
+
 }

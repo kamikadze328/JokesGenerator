@@ -43,7 +43,7 @@ class JokesViewModel @Inject constructor(
             .debounce(INPUT_TIMEOUT, TimeUnit.MILLISECONDS)
             .observeOn(Schedulers.io())
             .switchMap {
-                if (it < BigInteger.ONE) throw IllegalStateException(messageRepository.noJokes()) else loadJokes(
+                if (it < BigInteger.ONE) /*throw IllegalStateException(messageRepository.noJokes())*/ Observable.empty() else loadJokes(
                     it
                 )
             }

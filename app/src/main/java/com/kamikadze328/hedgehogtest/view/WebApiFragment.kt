@@ -3,8 +3,8 @@ package com.kamikadze328.hedgehogtest.view
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import android.view.View
-import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
@@ -37,7 +37,7 @@ class WebApiFragment : Fragment(R.layout.fragment_web_api) {
             if (state == WebApiState.READY) binding.webviewApi.restoreState(savedInstanceState)
         }
         if (state == WebApiState.DEFAULT) setupWebView()
-        if (state != WebApiState.READY) startLoading()
+        if (state != WebApiState.READY) load()
 
     }
 
@@ -64,6 +64,13 @@ class WebApiFragment : Fragment(R.layout.fragment_web_api) {
         }
     }
 
+    fun onBackPressed(): Boolean {
+        return if (binding.webviewApi.canGoBack()) {
+            binding.webviewApi.goBack()
+            true
+        } else false
+    }
+
     private fun onPageLoaded() {
         binding.progressbarApi.visibility = View.GONE
         binding.webviewApi.visibility = View.VISIBLE
@@ -83,7 +90,7 @@ class WebApiFragment : Fragment(R.layout.fragment_web_api) {
         }
     }
 
-    private fun startLoading() {
+    private fun load() {
         binding.webviewApi.loadUrl("https://www.icndb.com/api/")
     }
 

@@ -30,8 +30,7 @@
         app:layout_constraintBottom_toTopOf="@+id/et_jokes_count"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="kmdasknadsknlsadnjdfsjbkjefbkjdfsjbkesfbjsefjsefkjbsefbkjesfsefse" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/progressbar_jokes"
@@ -59,4 +58,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_jokes" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
