@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">HedgehogTest</string>
+
+    <string name="jokes">Jokes</string>
+
+    <string name="web_api_nav_menu">Web</string>
+    <string name="count">Count</string>
+    <string name="web_api_title">Api info</string>
+
+    <string name="you_are_offline">You are offline. Please check your Internet Connection</string>
+    <string name="no_jokes">There are no jokes…</string>
+
+    <string name="settings">Settings</string>
+
+    <string name="first_name">The first name</string>
+    <string name="input_first_name">Please input the first name</string>
+    <string name="second_name">The second name</string>
+    <string name="input_second_name">Please input the second name</string>
+
 </resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_jokes">
+    <fragment
+        android:id="@+id/navigation_jokes"
+        android:name="com.kamikadze328.hedgehogtest.view.JokesFragment"
+        android:label="@string/jokes"
+        tools:layout="@layout/fragment_jokes" />
+
+    <fragment
+        android:id="@+id/navigation_web_api"
+        android:name="com.kamikadze328.hedgehogtest.view.WebApiFragment"
+        android:label="@string/web_api_title"
+        tools:layout="@layout/fragment_web_api" />
+</navigation>

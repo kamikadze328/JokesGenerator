@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_jokes"
+        android:icon="@drawable/ic_jokes"
+        android:title="@string/jokes" />
+    <item
+        android:id="@+id/navigation_web_api"
+        android:icon="@drawable/ic_web_api"
+        android:title="@string/web_api_nav_menu" />
+</menu>
