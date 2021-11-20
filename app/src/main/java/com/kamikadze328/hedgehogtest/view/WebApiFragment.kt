@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.View
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
@@ -52,8 +53,15 @@ class WebApiFragment : Fragment(R.layout.fragment_web_api) {
                 state = WebApiState.READY
             }
         }
-        binding.webviewApi.settings.javaScriptEnabled = true
-        binding.webviewApi.settings.domStorageEnabled = true
+        binding.webviewApi.settings.apply {
+            builtInZoomControls = true
+            displayZoomControls = false
+            javaScriptEnabled = true
+            domStorageEnabled = true
+            /*cacheMode = WebSettings.LOAD_DEFAULT
+            loadsImagesAutomatically = true
+            mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW*/
+        }
     }
 
     private fun onPageLoaded() {

@@ -13,7 +13,6 @@ class JokeViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         (view as TextView).text = joke.joke
     }
 
-
     companion object {
         fun from(parent: ViewGroup): JokeViewHolder {
             val layoutInflater = LayoutInflater.from(parent.context)

@@ -28,7 +28,7 @@ class JokesViewModel @Inject constructor(
     private val _state: MutableLiveData<UIState<List<Joke>>> = MutableLiveData()
     val state: LiveData<UIState<List<Joke>>> = _state
 
-    private var subject: PublishSubject<String> = PublishSubject.create()
+    private var countSubject: PublishSubject<String> = PublishSubject.create()
     private var compositeDisposable = CompositeDisposable()
 
     init {
@@ -36,8 +36,8 @@ class JokesViewModel @Inject constructor(
     }
 
     private fun initSubject() {
-        subject = PublishSubject.create()
-        val disposable = subject.observeOn(Schedulers.computation())
+        countSubject = PublishSubject.create()
+        val disposable = countSubject.observeOn(Schedulers.computation())
             .map(String::softToBigInteger)
             .distinctUntilChanged()
             .debounce(INPUT_TIMEOUT, TimeUnit.MILLISECONDS)
@@ -53,7 +53,7 @@ class JokesViewModel @Inject constructor(
     }
 
     fun onInputCountChanged(str: String) {
-        subject.onNext(str)
+        countSubject.onNext(str)
     }
 
     private fun loadJokes(count: BigInteger): Observable<JokesResponse> {

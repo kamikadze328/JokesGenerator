@@ -17,8 +17,7 @@ class JokesRepositoryImpl @Inject constructor(
     private val webservice: Webservice,
     private val messageRepository: MessageRepository,
     private val context: Context
-) :
-    JokesRepository {
+) : JokesRepository {
 
     override fun loadJokes(count: BigInteger): Observable<JokesResponse> {
         if (!isInternetAvailable(context)) throw UnknownHostException(messageRepository.youAreOffline())
