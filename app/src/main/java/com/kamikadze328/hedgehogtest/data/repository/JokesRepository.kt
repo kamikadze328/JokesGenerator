@@ -3,7 +3,7 @@ package com.kamikadze328.hedgehogtest.data.repository
 import android.content.Context
 import com.kamikadze328.hedgehogtest.data.Webservice
 import com.kamikadze328.hedgehogtest.data.dto.JokesResponse
-import com.kamikadze328.hedgehogtest.data.isInternetAvailable
+import com.kamikadze328.hedgehogtest.data.utils.isInternetAvailable
 import io.reactivex.Observable
 import java.math.BigInteger
 import java.net.UnknownHostException
